@@ -32,7 +32,7 @@ shared_examples 'bubble::default_tests' do
 end
 
 shared_examples 'bubble::deploy_cs1' do
-  describe command('cd /data/shared/deploy; ./kvm_local_deploy.py --deploy-role cloudstack-mgt-dev -d 1 --force') do
+  describe command('cd /data/shared/deploy; sudo ./kvm_local_deploy.py --deploy-role cloudstack-mgt-dev -d 1 --force') do
     its(:stdout) {should contain('Examining the guest')}
     its(:stdout) {should contain('Installing firstboot script')}
     its(:stdout) {should contain('Finishing off')}
@@ -50,7 +50,7 @@ end
 
 
 shared_examples 'bubble::deploy_kvm1' do
-  describe command('cd /data/shared/deploy; ./kvm_local_deploy.py --deploy-role  kvm --digit 1 --force') do
+  describe command('cd /data/shared/deploy; sudo ./kvm_local_deploy.py --deploy-role  kvm --digit 1 --force') do
     its(:stdout) {should contain('Examining the guest')}
     its(:stdout) {should contain('Installing firstboot script')}
     its(:stdout) {should contain('Finishing off')}
